@@ -11,17 +11,10 @@
         <button type="button"><a href="{{ route('proxy') }}">Click</a></button>
         <button type="button"><a href="{{ route('show') }}">Show statistics</a></button>
         <table>
-            <tbody>
-                @foreach($ipAddr as $key)
-                        <tr>
-                            <td>IP Address</td>
-                            <td>COUNT</td>
-                        </tr> 
-                        <tr>
-                            <td>{{$key->ipAddress}}</td>
-                            <td>{{$count}}</td>
-                        </tr>       
-                @endforeach
+            <tbody>       
+                <tr>
+                    <td>{{$count}}</td>
+                </tr>           
             </tbody>
         </table>
     </body>

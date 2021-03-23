@@ -26,16 +26,12 @@ class ProxyController extends Controller
 
     public function show()
     {
-        $ipAddr = DB::table('ipaddresses')
-                    ->select('ipAddress')
-                    ->get();
-        $count = count($ipAddr);
-
-        $ipAddr = DB::table('ipaddresses')
-                    ->select('ipAddress')
-                    ->distinct()
+        $count = DB::table('ipaddresses')
+                    ->select(\DB::raw('COUNT(ipAddress) as count'),'ipAddress')
+                    ->groupby('ipAddress')
                     ->get();
 
-        return view('showView', compact('ipAddr','count'));
+  
+        return view('showView', compact('count'));
     }
 }
