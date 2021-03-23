@@ -15,6 +15,8 @@ class ProxyController extends Controller
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_URL, 'http://ipv4.webshare.io/');
+        curl_setopt($curl, CURLOPT_PROXY, 'http://p.webshare.io:80');
+        curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'sxvgafoe-rotate:hrx14z53g9i3');
         $result  = curl_exec($curl);
     
         $ipAddr = new ipAddress();
